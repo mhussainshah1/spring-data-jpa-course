@@ -33,7 +33,7 @@ public class Enrolment {
     @Column(
             name = "created_at",
             nullable = false,
-            columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
+            columnDefinition = "TIMESTAMP"//"TIMESTAMP WITHOUT TIME ZONE"
     )
     private LocalDateTime createdAt;
 
