@@ -60,5 +60,4 @@ public class Application {
             System.out.println(studentRepository.count());
         };
     }
-
 }
