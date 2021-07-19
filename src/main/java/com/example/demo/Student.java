@@ -1,31 +1,28 @@
 package com.example.demo;
-
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
-@Entity(name = "Student")
+@Entity(name = "Student")//Default name will be the class name.
 @Table(
         name = "student",
         uniqueConstraints = {
-                @UniqueConstraint(name = "student_email_unique", columnNames = "email")
+                @UniqueConstraint(name="student_email_unique", columnNames = "email")
         }
 )
 public class Student {
-
     @Id
     @SequenceGenerator(
-            name = "student_sequence",
+            name = "student_sequence", //Big Serial datatype is backed by sequence
             sequenceName = "student_sequence",
-            allocationSize = 1
+            allocationSize = 1 //how much sequence increased from, default is 1
     )
     @GeneratedValue(
             strategy = SEQUENCE,
             generator = "student_sequence"
     )
-    @Column(
-            name = "id",
-            updatable = false
+    @Column(name = "id",
+            updatable = false //no one can update
     )
     private Long id;
 
@@ -45,30 +42,25 @@ public class Student {
 
     @Column(
             name = "email",
-            nullable = false,
-            columnDefinition = "TEXT"
+            nullable = false/*,
+            columnDefinition = "TEXT"*/
     )
     private String email;
 
     @Column(
             name = "age",
             nullable = false
-
     )
     private Integer age;
 
-    public Student(String firstName,
-                   String lastName,
-                   String email,
-                   Integer age) {
+    public Student() {
+    }
+
+    public Student(String firstName, String lastName, String email, Integer age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.age = age;
-    }
-
-    public Student() {
-
     }
 
     public Long getId() {
