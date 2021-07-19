@@ -68,8 +68,6 @@ public class Application {
                     LocalDateTime.now().minusDays(18)
             ));
 
-
-
             studentRepository.save(student);
 
             studentRepository.findById(1L)
@@ -81,7 +79,6 @@ public class Application {
                                     s.getFirstName() + " borrowed " + book.getBookName());
                         });
                     });
-
         };
     }
 }
