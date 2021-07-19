@@ -44,8 +44,8 @@ public class Student {
 
     @Column(
             name = "email",
-            nullable = false,
-            columnDefinition = "TEXT"
+            nullable = false/*,
+            columnDefinition = "TEXT"*/
     )
     private String email;
 
